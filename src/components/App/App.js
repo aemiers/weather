@@ -1,6 +1,8 @@
 import './App.scss'
 import { fetchCityId, fetchWeatherById } from '../../data/apiCalls'
 import React, { Component } from 'react';
+import Nav from '../Nav/Nav'
+import Subheader from '../Subheader/Subheader'
 
 class App extends Component {
   constructor() {
@@ -29,6 +31,10 @@ class App extends Component {
   render() {
     return (
       <main className='app'>
+        <Nav
+        />
+        <Subheader
+        />
         {!!this.state.error &&
           <h2 className="error-feedback">{this.state.error}</h2>
         }

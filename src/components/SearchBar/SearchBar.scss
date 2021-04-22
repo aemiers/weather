@@ -1,1 +1,63 @@
 @import '../../scss/index.scss';
+
+@import '../Sass/index.scss';
+
+form {
+  position: relative;
+}
+
+input {
+  width: 45rem;
+  height: 4.5rem;
+  border-radius: 22px;
+  padding-left: 55px;
+  background-color: $lighter-grey;
+  // @include whiteBorder;
+  font-size: 1.75rem;
+  color: $white;
+
+  &:focus {
+    @include focus;
+  }
+}
+
+.clear-button {
+  @include cursor;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: $white;
+  background-color: $lighter-grey;
+  border: none;
+  font-size: 2rem;
+
+  &:hover {
+    @include transition;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  top: 1px;
+  left: 0.8px;
+  width: 44px;
+  padding: 5px;
+  background-color: #8EFF6F;
+  border-radius: 20px;
+  @include whiteBorder;
+}
+
+.clear-icon {
+  width: 15px;
+}
+
+.logo-container {
+  position: relative;
+  top: 0px;
+  right: 0px;
+}
+
