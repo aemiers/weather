@@ -1,0 +1,1 @@
+import './WeeklyForecast.scss';

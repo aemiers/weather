@@ -1,0 +1,1 @@
+import './DailyForecastDetails.scss';
