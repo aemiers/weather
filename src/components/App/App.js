@@ -7,7 +7,7 @@ class App extends Component {
     super()
     this.state = {
       cityData: [],
-      weatherData: [],
+      weatherData: {},
       error: ''
     }
   }
@@ -18,11 +18,12 @@ class App extends Component {
         this.setState({ cityData: fetchedCityData })
       })
       .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
-    // .then(fetchWeatherById(this.cityData))
-    // fetchWeatherData()
-    //   .then((weathers) => {
-    //     this.setState({weatherData: this.prepWeatherData(weathers)})
-    //   })
+
+    fetchWeatherById('2391279')
+      .then((fetchedWeatherData) => {
+        this.setState({ weatherData: fetchedWeatherData })
+      })
+      .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
   }
 
   render() {
