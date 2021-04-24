@@ -1,5 +1,5 @@
-// const baseURL = '/api/location/'
-const baseURL = 'https://www.metaweather.com/api/#location'
+const baseURL = '/api/location/'
+// const baseURL = 'https://www.metaweather.com/api/#location'
 
 export const fetchCityId = (cityName) => {
   return fetch(`${baseURL}search/?query=${cityName}`)

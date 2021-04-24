@@ -1,14 +1,26 @@
 import './Nav.scss';
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <header>
-      <h1 className='logo'>WeatherReader</h1>
+    <header className='nav-bar'>
+      <p className='logo'>WeatherReader</p>
       <section className='link-container'>
-        <h2>TODAY'S FORECAST</h2>
-        <h2>5-DAY FORECAST</h2>
+        <NavLink
+          to='/'
+          activeClassName='activated-nav'
+          style={{ textDecoration: 'none' }}
+        >
+          <h3 className='header-text'>TODAY'S FORECAST</h3>
+        </NavLink>
+        <NavLink
+          to='/5day'
+          activeClassName='activated-nav'
+          style={{ textDecoration: 'none' }}
+        >
+          <h3 className='header-text'>5-DAY FORECAST</h3>
+        </NavLink>
       </section>
     </header>
   )

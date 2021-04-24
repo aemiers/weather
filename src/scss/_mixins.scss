@@ -12,3 +12,12 @@
   transition: transform 300ms;
   transition: all 0.2s ease-in-out;
 }
+
+@mixin shadow {
+  box-shadow: 3px 4px 7px 1px rgba(174, 174, 174, 0.35);
+}
+
+@mixin margins {
+  margin-left: 50px;
+  margin-right: 50px;
+}

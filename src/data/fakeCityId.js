@@ -1,12 +1,10 @@
-const fakeCityId = {
-  "city": [
-    {
-      "title": "London",
-      "location_type": "City",
-      "woeid": 44418,
-      "latt_long": "51.506321,-0.12714"
-    }
-  ]
+const fakeCityId =
+{
+  "title": "London",
+  "location_type": "City",
+  "woeid": 44418,
+  "latt_long": "51.506321,-0.12714"
 }
+
 
 export default fakeCityId;
