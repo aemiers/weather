@@ -1,5 +1,14 @@
 @import '../../scss/index.scss';
 
+.pin-container {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  @include cursor;
+}
+
 .red-pin {
   height: 15px;
+  margin-right: 5px;
 }
+

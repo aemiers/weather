@@ -4,7 +4,7 @@ import pin from '../../assets/pin.svg'
 
 const Pin = ({ name }) => {
   return (
-    <section>
+    <section className='pin-container'>
       <img src={pin} alt='red pin' className='red-pin' />
       <p>{name}</p>
     </section>

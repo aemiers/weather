@@ -14,7 +14,7 @@ class App extends Component {
       weatherData: { fakeWeatherData },
       // cityData: [],
       // weatherData: {},
-      savedCities: [fakeCityId],
+      savedCities: [fakeCityId, fakeCityId, fakeCityId],
       error: ''
     }
   }

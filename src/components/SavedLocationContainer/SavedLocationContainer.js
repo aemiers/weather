@@ -12,7 +12,7 @@ const SavedLocationContainer = ({ savedCities }) => {
   })
 
   return (
-    <section className='all-pinned-cities'>
+    <section className='pinned-cities-container'>
       {allSavedCities}
     </section>
   )
