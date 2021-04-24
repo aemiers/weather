@@ -14,7 +14,7 @@ class App extends Component {
       weatherData: { fakeWeatherData },
       // cityData: [],
       // weatherData: {},
-      savedCities: [],
+      savedCities: [fakeCityId],
       error: ''
     }
   }
@@ -37,7 +37,7 @@ class App extends Component {
     return (
       <main className='app'>
         <Nav />
-        <Subheader />
+        <Subheader savedCities={this.state.savedCities} />
         {!!this.state.error &&
           <h2 className="error-feedback">{this.state.error}</h2>
         }
