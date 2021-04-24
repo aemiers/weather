@@ -2,11 +2,14 @@ import './Pin.scss';
 import React from 'react';
 import pin from '../../assets/pin.svg'
 
-const Pin = () => {
+const Pin = ({ name }) => {
   return (
-    <img src={pin} alt='red pin' className='red-pin' />
-    // name={city.title}
+    <section>
+      <img src={pin} alt='red pin' className='red-pin' />
+      <p>{name}</p>
+    </section>
   )
 }
 
 export default Pin;
+
