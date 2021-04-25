@@ -1,15 +1,20 @@
 import './DailyForecast.scss';
 import React from 'react';
 import WeatherSectionHeader from '../WeatherSectionHeader/WeatherSectionHeader';
+import DailyForecastDetails from '../DailyForecastDetails/DailyForecastDetails';
+
 import pin from '../../assets/pin.svg'
 import pinBlank from '../../assets/pinBlank.svg'
 
-const DailyForecast = ({ cityData, weatherData }) => {
+const DailyForecast = ({ weatherData }) => {
 
   return (
-    <WeatherSectionHeader
-      cityData={cityData}
-      weatherData={weatherData} />
+    <>
+      <WeatherSectionHeader
+        weatherData={weatherData} />
+      <DailyForecastDetails
+        weatherData={weatherData} />
+    </>
   )
 }
 

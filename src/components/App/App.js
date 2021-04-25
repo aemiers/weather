@@ -37,20 +37,18 @@ class App extends Component {
   }
 
   cleanWeatherData(weatherData) {
-    const cleanWeatherData = Object.keys(weatherData)
+    Object.keys(weatherData)
     return {
       weatherForecast: weatherData.consolidated_weather,
       cityName: weatherData.title,
       latLong: weatherData.latt_long
     }
-    return cleanWeatherData;
   }
 
   renderComponent = () => {
     if (this.state.weatherData) {
       return (
         <DailyForecast
-          cityData={this.state.cityData}
           weatherData={this.state.weatherData} />
       )
     }

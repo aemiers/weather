@@ -1,9 +1,12 @@
 @import '../../scss/index.scss';
 
 .header-container {
+  margin-top: 30px;
+
   &__first-line {
     display: flex;
     align-items: center;
+    height: 50px;
   }
 
   &__pin {

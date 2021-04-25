@@ -1,0 +1,14 @@
+@import '../../scss/index.scss';
+
+.picture-card-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: pink;
+  width: 30%;
+}
+
+.weather-icon {
+  width: 250px;
+}

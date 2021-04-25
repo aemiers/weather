@@ -1,5 +1,7 @@
 @import '../../scss/index.scss';
 
 .main-page {
+  max-width: 1500px;
+  margin: 0 auto;
   @include margins;
 }

@@ -16,6 +16,7 @@ input {
   border-color: 1px solid $light-grey;
   color: $black;
   padding-left: 35px;
+  margin: 10px 0 10px 0;
 
   &:focus {
     @include focus;
@@ -25,7 +26,7 @@ input {
 .clear-button {
   @include cursor;
   position: absolute;
-  top: 17px;
+  top: 20px;
   right: 10px;
   border: none;
   background-color: transparent;
@@ -41,7 +42,7 @@ input {
 
 .search-icon {
   position: absolute;
-  top: 15px;
+  top: 17px;
   right: 350px;
   width: 20px;
 }
