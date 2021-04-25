@@ -42,40 +42,47 @@ class App extends Component {
     }
   }
 
-  renderComponent = () => {
-    if (this.state.weatherData) {
-
-      return (
-        // <DailyForecast
-        //   weatherData={this.state.weatherData} />
-        <WeeklyForecast
-          weatherData={this.state.weatherData} />
-      )
-    }
-  }
+  // renderComponent = () => {
+  //   if (this.state.weatherData) {
+  //     return (
+  //       <DailyForecast
+  //         weatherData={this.state.weatherData} />
+  //       // <WeeklyForecast
+  //       //   weatherData={this.state.weatherData} />
+  //     )
+  //   }
+  // }
 
   render() {
     return (
       <main className='app'>
         <Nav />
         <Subheader savedCities={this.state.savedCities} />
-        {!!this.state.error &&
-          <h2 className='error-feedback'>{this.state.error}</h2>
-        }
         <section className='main-page'>
+          {!!this.state.error &&
+            <h2 className='error-feedback'>{this.state.error}</h2>
+          }
+
+          {!this.state.error && !this.state.weatherData.weatherForecast &&
+            <h2 className='loading'>Loading</h2>
+          }
+
           <Switch>
             <Route
               exact path='/'
-              render={this.renderComponent}
+              render={() => {
+                return < DailyForecast weatherData={this.state.weatherData} />
+              }
+              }
             />
 
-            {/* <Route
+            <Route
               exact path='/5day'
               render={() => {
-                return <WeeklyForecast />
+                return < WeeklyForecast weatherData={this.state.weatherData} />
               }
               }
-            /> */}
+            />
           </Switch>
         </section>
       </main>
