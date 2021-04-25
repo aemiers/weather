@@ -11,6 +11,8 @@ const WeatherDetailsList = ({ weatherData }) => {
   let humidity, wind, windDirection, pressure, visibility;
   if (weatherData.weatherForecast) {
     humidity = weatherData.weatherForecast[0].humidity;
+    wind = Math.round(weatherData.weatherForecast[0].wind_speed);
+    windDirection = weatherData.weatherForecast[0].wind_direction_compass;
     pressure = weatherData.weatherForecast[0].air_pressure;
     visibility = Math.round(weatherData.weatherForecast[0].visibility);
   }
@@ -18,23 +20,23 @@ const WeatherDetailsList = ({ weatherData }) => {
     <section className='details-card-container'>
       <div className='detail-container'>
         <img src={moistureDrops} alt='favorite' className='weather-details-icon' />
-        <p className='weather-details'>Humidity {humidity}%</p>
+        <p className='weather-details'>Humidity: {humidity}%</p>
       </div>
       <div className='detail-container'>
         <img src={windSock} alt='favorite' className='weather-details-icon' />
-        <p className='weather-details'>Wind Speed {wind}MPH</p>
+        <p className='weather-details'>Wind Speed: {wind} MPH</p>
       </div>
       <div className='detail-container'>
         <img src={compass} alt='favorite' className='weather-details-icon' />
-        <p className='weather-details'>Wind Direction {windDirection}</p>
+        <p className='weather-details'>Wind Direction: {windDirection}</p>
       </div>
       <div className='detail-container'>
         <img src={windPressure} alt='favorite' className='weather-details-icon' />
-        <p className='weather-details'>Air Pressure {pressure}</p>
+        <p className='weather-details'>Air Pressure: {pressure} MBAR</p>
       </div>
       <div className='detail-container'>
         <img src={cloud} alt='favorite' className='weather-details-icon' />
-        <p className='weather-details'>Visibility {visibility}%</p>
+        <p className='weather-details'>Visibility: {visibility} Miles</p>
       </div>
 
 
