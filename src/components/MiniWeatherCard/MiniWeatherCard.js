@@ -10,14 +10,15 @@ import showers from '../../assets/003-rain.svg';
 import lightCloud from '../../assets/002-cloudy.svg';
 import hail from '../../assets/006-storm.svg';
 import heavyCloud from '../../assets/010-wind.svg';
-// import loading from '../../assets/loading.svg';
 
-const MiniWeatherCard = ({ weatherData }) => {
-  let imgSrc, fHighTemp, fLowTemp, date;
-  if (weatherData.weatherForecast) {
-    let weatherType = weatherData.weatherForecast[0].weather_state_name;
-    // fHighTemp = Math.round((weatherData.weatherForecast[0].max_temp * 1.8) + 32)
-    // fLowTemp = Math.round((weatherData.weatherForecast[0].min_temp * 1.8) + 32)
+const MiniWeatherCard = ({ fLowTemp, fHighTemp, weatherName, date }) => {
+  let imgSrc, formattedHighTemp, formattedLowTemp;
+
+  if (fLowTemp) {
+    let weatherType = weatherName;
+    formattedHighTemp = Math.round((fHighTemp * 1.8) + 32);
+    formattedLowTemp = Math.round((fLowTemp * 1.8) + 32);
+
     if (weatherType === 'Snow') {
       imgSrc = snow;
     } else if (weatherType === 'Sleet') {
@@ -46,8 +47,8 @@ const MiniWeatherCard = ({ weatherData }) => {
       <p className='mini-card-date'> {date}</p>
       <img src={imgSrc} alt='weather icon' className='mini-weather-icon' />
       <div className='mini-card-temp-container'>
-        <p className='mini-card-temp'>{fHighTemp}° |</p>
-        <p className='mini-card-temp low'> {fLowTemp}°</p>
+        <p className='mini-card-temp'>{formattedHighTemp}° |</p>
+        <p className='mini-card-temp low'> {formattedLowTemp}°</p>
       </div>
     </section>
   )
