@@ -7,14 +7,14 @@ import WeatherDetailsList from '../WeatherDetailsList/WeatherDetailsList';
 const DailyForecastDetails = ({ weatherData }) => {
 
   return (
-    <>
+    <section className='card-container'>
       <PictureCard
         weatherData={weatherData} />
       <TemperatureCard
         weatherData={weatherData} />
       <WeatherDetailsList
         weatherData={weatherData} />
-    </>
+    </section>
   )
 }
 
