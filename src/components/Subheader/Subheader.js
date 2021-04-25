@@ -1,17 +1,17 @@
 import './Subheader.scss';
 import React from 'react';
+import SavedLocationContainer from '../SavedLocationContainer/SavedLocationContainer'
+import SearchBar from '../SearchBar/SearchBar'
 
-const Subheader = () => {
+const Subheader = (savedCities) => {
   return (
-    <section>
-      {/* <LocationDetails
-      />
+    <section className='subheader'>
+      <SavedLocationContainer savedCities={savedCities} />
       <SearchBar
-      /> */}
+      />
     </section>
   )
 }
 
 export default Subheader
 
-  // "proxy": "https://www.metaweather.com",

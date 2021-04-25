@@ -1,1 +1,6 @@
 @import '../../scss/index.scss';
+
+.subheader {
+  border-bottom: 2px solid $light-grey;
+  display: flex;
+}

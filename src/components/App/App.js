@@ -2,7 +2,11 @@ import './App.scss'
 import { fetchCityId, fetchWeatherById } from '../../data/apiCalls'
 import React, { Component } from 'react';
 import Nav from '../Nav/Nav'
+import DailyForecast from '../DailyForecast/DailyForecast';
+import WeeklyForecast from '../WeeklyForecast/WeeklyForecast';
 import Subheader from '../Subheader/Subheader'
+import fakeCityId from '../../data/fakeCityId'
+import { Route, Switch } from 'react-router';
 
 class App extends Component {
   constructor() {
@@ -10,6 +14,7 @@ class App extends Component {
     this.state = {
       cityData: [],
       weatherData: {},
+      savedCities: [fakeCityId, fakeCityId, fakeCityId],
       error: ''
     }
   }
@@ -23,23 +28,55 @@ class App extends Component {
 
     fetchWeatherById('2391279')
       .then((fetchedWeatherData) => {
-        this.setState({ weatherData: fetchedWeatherData })
+        this.setState({ weatherData: this.organizeWeatherData(fetchedWeatherData) })
       })
       .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
+  }
+
+  organizeWeatherData(weatherData) {
+    Object.keys(weatherData)
+    return {
+      weatherForecast: weatherData.consolidated_weather,
+      cityName: weatherData.title,
+      latLong: weatherData.latt_long,
+    }
+  }
+
+  renderComponent = () => {
+    if (this.state.weatherData) {
+
+      return (
+        // <DailyForecast
+        //   weatherData={this.state.weatherData} />
+        <WeeklyForecast
+          weatherData={this.state.weatherData} />
+      )
+    }
   }
 
   render() {
     return (
       <main className='app'>
-        <Nav
-        />
-        <Subheader
-        />
+        <Nav />
+        <Subheader savedCities={this.state.savedCities} />
         {!!this.state.error &&
-          <h2 className="error-feedback">{this.state.error}</h2>
+          <h2 className='error-feedback'>{this.state.error}</h2>
         }
-
         <section className='main-page'>
+          <Switch>
+            <Route
+              exact path='/'
+              render={this.renderComponent}
+            />
+
+            {/* <Route
+              exact path='/5day'
+              render={() => {
+                return <WeeklyForecast />
+              }
+              }
+            /> */}
+          </Switch>
         </section>
       </main>
     )
