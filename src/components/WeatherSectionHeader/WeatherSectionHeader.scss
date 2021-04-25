@@ -2,6 +2,7 @@
 
 .header-container {
   margin-top: 30px;
+  @include margins;
 
   &__first-line {
     display: flex;
