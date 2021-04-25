@@ -5,7 +5,7 @@ import SearchBar from '../SearchBar/SearchBar'
 
 const Subheader = (savedCities) => {
   return (
-    <section>
+    <section className='subheader'>
       <SavedLocationContainer savedCities={savedCities} />
       <SearchBar
       />

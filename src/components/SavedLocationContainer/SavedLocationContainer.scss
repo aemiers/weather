@@ -1,7 +1,7 @@
 @import '../../scss/index.scss';
 
 .pinned-cities-container {
-  @include margins;
+  margin-left: 50px;
   display: flex;
   width: 50%;
 }
