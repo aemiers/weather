@@ -58,8 +58,6 @@ class App extends Component {
 
   stateChange = (dataLocation, newStateData) => {
     this.setState({ [dataLocation]: newStateData })
-    console.log(dataLocation)
-    console.log(newStateData)
   }
 
   deleteFromPinned = (id) => {
@@ -108,6 +106,7 @@ class App extends Component {
                 return < DailyForecast
                   weatherData={this.state.weatherData}
                   pinLocation={this.pinLocation}
+                  savedCities={this.state.savedCities}
                 />
               }
               }
@@ -119,6 +118,7 @@ class App extends Component {
                 return < WeeklyForecast
                   weatherData={this.state.weatherData}
                   pinLocation={this.pinLocation}
+                  savedCities={this.state.savedCities}
                 />
               }
               }

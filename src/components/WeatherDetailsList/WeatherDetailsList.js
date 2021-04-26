@@ -6,7 +6,6 @@ import windSock from '../../assets/windsock.svg'
 import windPressure from '../../assets/011-wind.svg'
 import cloud from '../../assets/cloud.svg'
 
-
 const WeatherDetailsList = ({ weatherData }) => {
   let humidity, wind, windDirection, pressure, visibility;
   if (weatherData.weatherForecast) {
@@ -39,8 +38,6 @@ const WeatherDetailsList = ({ weatherData }) => {
         <img src={cloud} alt='favorite' className='weather-details-icon' />
         <p className='weather-details'>Visibility: {visibility} Miles</p>
       </div>
-
-
     </section>
   )
 }

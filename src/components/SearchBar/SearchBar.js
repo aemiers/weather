@@ -23,7 +23,6 @@ class SearchBar extends Component {
   }
 
   searchBarSearch = (event) => {
-    // event.preventDefault(event);
     if (!this.state.searchWords) {
       return
     } else {
@@ -50,8 +49,6 @@ class SearchBar extends Component {
             value={this.state.searchWords}
             onKeyPress={event => this.handleKeyPress(event)}
             onChange={this.handleChange}
-          // onKeyPress={this.handleKeyPress}
-
           />
           <button className='clear-button' onClick={event => this.clearInputs(event)}><img className='clear-icon' src={cancel} alt="clear button" /></button>
         </Link>

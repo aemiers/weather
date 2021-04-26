@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const Nav = () => {
   return (
     <header className='nav-bar'>
-      <p className='logo'>WeatherReader</p>
+      <p className='logo'>WeatherForecaster</p>
       <section className='link-container'>
         <NavLink
           exact to='/'
