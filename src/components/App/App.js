@@ -66,18 +66,19 @@ class App extends Component {
 
   pinLocation = () => {
     let currentlySavedLocations = this.state.savedCities;
-    if (!this.state.savedCities.includes(this.state.cityData)) {
+    if (!this.state.savedCities.includes(this.state.cityData[0])) {
       currentlySavedLocations.push(this.state.cityData[0]);
       console.log(currentlySavedLocations)
-
       this.setState({ savedCities: currentlySavedLocations })
     }
-
   }
 
-  removeLocation = (id) => {
-    // deleteFromPinned(id)
-    console.log(id)
+  unpinLocation = (id) => {
+    let currentlySavedLocations = this.state.savedCities;
+    let foundCity = currentlySavedLocations.find(city => {
+      return city.title === id
+    })
+    console.log(foundCity)
     // if (response.ok) {
     //   const filteredIdeas = this.state.ideas.filter(idea => idea.id !== id);
     //   this.setState({ ideas: filteredIdeas, error: '' });
@@ -94,6 +95,7 @@ class App extends Component {
         <Subheader
           savedCities={this.state.savedCities}
           stateChange={this.stateChange}
+          removeLocation={this.unpinLocation}
         />
         <section className='main-page'>
           {!!this.state.error &&
