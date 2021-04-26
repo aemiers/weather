@@ -14,7 +14,6 @@ class App extends Component {
     this.state = {
       currentCity: 'Washington',
       cityData: [],
-      cityId: '',
       weatherData: {},
       savedCities: [fakeCityId, fakeCityId, fakeCityId],
       error: ''
@@ -22,6 +21,16 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getData();
+  }
+
+  componentDidUpdate(prevState) {
+    if (this.state.currentCity !== prevState.currentCity) {
+      this.getData();
+    }
+  }
+
+  getData() {
     fetchCityId(this.state.currentCity)
       .then((fetchedCityData) => {
         this.setState({ cityData: fetchedCityData })
@@ -36,22 +45,6 @@ class App extends Component {
         this.setState({ weatherData: this.organizeWeatherData(fetchedWeatherData) })
       })
   }
-
-
-  // componentDidMount() {
-  //   fetchCityId(this.state.currentCity)
-  //     .then((fetchedCityData) => {
-  //       this.setState({ cityData: fetchedCityData })
-  //     })
-  //     .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
-
-  //   fetchWeatherById('44418')
-  //     .then((fetchedWeatherData) => {
-  //       this.setState({ weatherData: this.organizeWeatherData(fetchedWeatherData) })
-  //     })
-  //     .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
-  // }
-
 
   organizeWeatherData(weatherData) {
     Object.keys(weatherData)

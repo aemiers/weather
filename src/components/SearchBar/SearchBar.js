@@ -16,23 +16,27 @@ class SearchBar extends Component {
     this.setState({ searchWords: event.target.value });
   }
 
+  handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      this.searchBarSearch(event);
+    }
+  }
+
   searchBarSearch = (event) => {
-    const formattedSearchWords = this.state.searchWords.toLowerCase();
-    this.setState({ searchWords: formattedSearchWords })
-    // if (!resultMovies.length) {
-    //   this.props.stateChange('error', 'No movies found');
-    //   this.props.stateChange('filteredMovies', []);
-    // } else {
-    //   this.props.stateChange('error', '');
-    //   this.props.stateChange('filteredMovies', resultMovies);
-    // }
+    // event.preventDefault(event);
+    if (!this.state.searchWords) {
+      return
+    } else {
+      const finalSearchWords = this.state.searchWords;
+      console.log(finalSearchWords)
+      this.props.stateChange('currentCity', finalSearchWords);
+    }
   }
 
   clearInputs = event => {
     event.preventDefault(event);
     this.handleChange(event);
     this.setState({ searchWords: '' });
-    this.props.stateChange('currentCity', '');
   }
 
   render() {
@@ -45,8 +49,10 @@ class SearchBar extends Component {
             placeholder='Search by City'
             name='search'
             value={this.state.searchWords}
+            onKeyPress={event => this.handleKeyPress(event)}
             onChange={this.handleChange}
-            onKeyUp={event => this.searchBarSearch(event)}
+          // onKeyPress={this.handleKeyPress}
+
           />
           <button className='clear-button' onClick={event => this.clearInputs(event)}><img className='clear-icon' src={cancel} alt="clear button" /></button>
         </Link>

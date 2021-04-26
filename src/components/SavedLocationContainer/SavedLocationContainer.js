@@ -3,7 +3,7 @@ import React from 'react';
 import Pin from '../Pin/Pin'
 
 const SavedLocationContainer = ({ savedCities }) => {
-  const allSavedCities = savedCities.savedCities.map(city => {
+  const allSavedCities = savedCities.map(city => {
     return (
       <Pin
         name={city.title}
