@@ -15,3 +15,9 @@
     width: 30px;
   }
 }
+
+.big-pin-button {
+  border: none;
+  background: transparent;
+  @include cursor;
+}

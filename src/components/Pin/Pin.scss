@@ -9,6 +9,16 @@
 
 .red-pin {
   height: 15px;
-  margin-right: 5px;
 }
 
+.pin-button {
+  border: none;
+  background: transparent;
+  @include cursor;
+}
+
+.redirect-location {
+  border: none;
+  background: transparent;
+  @include cursor;
+}

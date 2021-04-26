@@ -12,9 +12,8 @@
 }
 
 .logo {
-  font-size: 30px;
+  font-size: 25px;
   @include margins;
-
 }
 
 .link-container {
@@ -27,6 +26,7 @@
 
 .header-text {
   color: $black;
+  line-height: .5;
 }
 
 .activated-nav {

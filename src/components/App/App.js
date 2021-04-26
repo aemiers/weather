@@ -5,32 +5,46 @@ import Nav from '../Nav/Nav'
 import DailyForecast from '../DailyForecast/DailyForecast';
 import WeeklyForecast from '../WeeklyForecast/WeeklyForecast';
 import Subheader from '../Subheader/Subheader'
-import fakeCityId from '../../data/fakeCityId'
+import london from '../../data/fakeCityId'
 import { Route, Switch } from 'react-router';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      cityData: [],
+      currentCity: 'Washington',
+      cityData: {},
       weatherData: {},
-      savedCities: [fakeCityId, fakeCityId, fakeCityId],
+      savedCities: [london],
       error: ''
     }
   }
 
   componentDidMount() {
-    fetchCityId('Denver')
-      .then((fetchedCityData) => {
-        this.setState({ cityData: fetchedCityData })
-      })
-      .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
+    this.getData();
+  }
 
-    fetchWeatherById('2391279')
+  componentDidUpdate(prevState, prevProps) {
+    if (this.state.currentCity !== prevProps.currentCity) {
+      this.getData();
+    }
+  }
+
+  getData() {
+    fetchCityId(this.state.currentCity)
+      .then((fetchedCityData) => {
+        this.setState({ error: '' })
+        this.setState({ cityData: fetchedCityData })
+        this.getWeatherById(fetchedCityData[0].woeid)
+      })
+      .catch(error => this.setState({ error: 'Apologies- I couldn\'t find that city. Please try a larger city.' }))
+  }
+
+  getWeatherById(id) {
+    fetchWeatherById(id)
       .then((fetchedWeatherData) => {
         this.setState({ weatherData: this.organizeWeatherData(fetchedWeatherData) })
       })
-      .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
   }
 
   organizeWeatherData(weatherData) {
@@ -42,40 +56,73 @@ class App extends Component {
     }
   }
 
-  renderComponent = () => {
-    if (this.state.weatherData) {
+  stateChange = (dataLocation, newStateData) => {
+    this.setState({ [dataLocation]: newStateData })
+  }
 
-      return (
-        // <DailyForecast
-        //   weatherData={this.state.weatherData} />
-        <WeeklyForecast
-          weatherData={this.state.weatherData} />
-      )
+  deleteFromPinned = (id) => {
+    let pinnedCities = this.state.savedCities
+    pinnedCities.city(id)
+  }
+
+  pinLocation = () => {
+    let currentlySavedLocations = this.state.savedCities;
+    if (!this.state.savedCities.includes(this.state.cityData[0])) {
+      currentlySavedLocations.push(this.state.cityData[0]);
+      this.setState({ savedCities: currentlySavedLocations });
     }
+  }
+
+  unpinLocation = (id) => {
+    let currentlySavedLocations = this.state.savedCities;
+    let foundCity = currentlySavedLocations.find(city => city.title === id);
+    let index = currentlySavedLocations.indexOf(foundCity);
+    currentlySavedLocations.splice(index, 1);
+    this.setState({ savedCities: currentlySavedLocations });
   }
 
   render() {
     return (
       <main className='app'>
         <Nav />
-        <Subheader savedCities={this.state.savedCities} />
-        {!!this.state.error &&
-          <h2 className='error-feedback'>{this.state.error}</h2>
-        }
+        <Subheader
+          savedCities={this.state.savedCities}
+          stateChange={this.stateChange}
+          unpinLocation={this.unpinLocation}
+        />
         <section className='main-page'>
+          {!!this.state.error &&
+            <h2 className='error-feedback'>{this.state.error}</h2>
+          }
+
+          {!this.state.error && !this.state.weatherData.weatherForecast &&
+            <h2 className='loading'>Loading</h2>
+          }
+
           <Switch>
             <Route
               exact path='/'
-              render={this.renderComponent}
+              render={() => {
+                return < DailyForecast
+                  weatherData={this.state.weatherData}
+                  pinLocation={this.pinLocation}
+                  savedCities={this.state.savedCities}
+                />
+              }
+              }
             />
 
-            {/* <Route
+            <Route
               exact path='/5day'
               render={() => {
-                return <WeeklyForecast />
+                return < WeeklyForecast
+                  weatherData={this.state.weatherData}
+                  pinLocation={this.pinLocation}
+                  savedCities={this.state.savedCities}
+                />
               }
               }
-            /> */}
+            />
           </Switch>
         </section>
       </main>
