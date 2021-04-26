@@ -16,6 +16,7 @@ const WeatherDetailsList = ({ weatherData }) => {
     pressure = weatherData.weatherForecast[0].air_pressure;
     visibility = Math.round(weatherData.weatherForecast[0].visibility);
   }
+
   return (
     <section className='details-card-container'>
       <div className='detail-container'>

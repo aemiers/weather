@@ -58,6 +58,8 @@ class App extends Component {
 
   stateChange = (dataLocation, newStateData) => {
     this.setState({ [dataLocation]: newStateData })
+    console.log(dataLocation)
+    console.log(newStateData)
   }
 
   deleteFromPinned = (id) => {

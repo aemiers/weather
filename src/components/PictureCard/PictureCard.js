@@ -9,7 +9,7 @@ import lightRain from '../../assets/004-rainy.svg';
 import showers from '../../assets/003-rain.svg';
 import lightCloud from '../../assets/002-cloudy.svg';
 import hail from '../../assets/006-storm.svg';
-import heavyCloud from '../../assets/010-wind.svg';
+import cloud from '../../assets/cloud.svg'
 import loading from '../../assets/loading.svg';
 
 const PictureCard = ({ weatherData }) => {
@@ -42,7 +42,7 @@ const PictureCard = ({ weatherData }) => {
       imgSrc = showers;
       weatherName = 'Showers';
     } else if (weatherType === 'Heavy Cloud') {
-      imgSrc = heavyCloud;
+      imgSrc = cloud;
       weatherName = 'Heavy Clouds';
     } else if (weatherType === 'Light Cloud') {
       imgSrc = lightCloud;

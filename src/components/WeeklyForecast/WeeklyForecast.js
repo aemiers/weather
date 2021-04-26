@@ -3,12 +3,13 @@ import React from 'react';
 import WeatherSectionHeader from '../WeatherSectionHeader/WeatherSectionHeader';
 import WeeklyForecastDetails from '../WeeklyForecastDetails/WeeklyForecastDetails';
 
-const WeeklyForecast = ({ weatherData }) => {
+const WeeklyForecast = ({ weatherData, pinLocation }) => {
 
   return (
     <>
       <WeatherSectionHeader
-        weatherData={weatherData} />
+        weatherData={weatherData}
+        pinLocation={pinLocation} />
       <WeeklyForecastDetails
         weatherData={weatherData} />
     </>

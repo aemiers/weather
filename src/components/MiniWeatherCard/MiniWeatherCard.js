@@ -9,7 +9,7 @@ import lightRain from '../../assets/004-rainy.svg';
 import showers from '../../assets/003-rain.svg';
 import lightCloud from '../../assets/002-cloudy.svg';
 import hail from '../../assets/006-storm.svg';
-import heavyCloud from '../../assets/010-wind.svg';
+import cloud from '../../assets/cloud.svg'
 
 const MiniWeatherCard = ({ fLowTemp, fHighTemp, weatherName, date }) => {
   let imgSrc, formattedHighTemp, formattedLowTemp;
@@ -34,7 +34,7 @@ const MiniWeatherCard = ({ fLowTemp, fHighTemp, weatherName, date }) => {
     } else if (weatherType === 'Showers') {
       imgSrc = showers;
     } else if (weatherType === 'Heavy Cloud') {
-      imgSrc = heavyCloud;
+      imgSrc = cloud;
     } else if (weatherType === 'Light Cloud') {
       imgSrc = lightCloud;
     } else {

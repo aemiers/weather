@@ -10,6 +10,7 @@ const Subheader = ({ savedCities, stateChange, unpinLocation }) => {
       <SavedLocationContainer
         savedCities={savedCities}
         unpinLocation={unpinLocation}
+        stateChange={stateChange}
       />
       <SearchBar stateChange={stateChange} />
     </section>
