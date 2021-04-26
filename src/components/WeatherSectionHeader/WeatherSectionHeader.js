@@ -5,7 +5,6 @@ import pinBlank from '../../assets/pinBlank.svg'
 
 const WeatherSectionHeader = ({ weatherData, pinLocation, savedCities }) => {
   let displayPin;
-  console.log(weatherData.cityName)
   savedCities.forEach(city => {
     if (city.title.includes(weatherData.cityName)) {
       displayPin = pin;
