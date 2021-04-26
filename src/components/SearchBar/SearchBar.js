@@ -32,7 +32,7 @@ class SearchBar extends Component {
     event.preventDefault(event);
     this.handleChange(event);
     this.setState({ searchWords: '' });
-    // this.props.stateChange('filteredMovies', []);
+    this.props.stateChange('currentCity', '');
   }
 
   render() {

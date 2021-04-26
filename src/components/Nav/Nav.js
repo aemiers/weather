@@ -8,16 +8,17 @@ const Nav = () => {
       <p className='logo'>WeatherReader</p>
       <section className='link-container'>
         <NavLink
-          to='/'
+          exact to='/'
           activeClassName='activated-nav'
           style={{ textDecoration: 'none' }}
         >
           <h3 className='header-text'>TODAY'S FORECAST</h3>
         </NavLink>
         <NavLink
-          to='/5day'
+          exact to='/5day'
           activeClassName='activated-nav'
           style={{ textDecoration: 'none' }}
+
         >
           <h3 className='header-text'>5-DAY FORECAST</h3>
         </NavLink>

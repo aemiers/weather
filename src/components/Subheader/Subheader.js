@@ -3,11 +3,11 @@ import React from 'react';
 import SavedLocationContainer from '../SavedLocationContainer/SavedLocationContainer'
 import SearchBar from '../SearchBar/SearchBar'
 
-const Subheader = (savedCities) => {
+const Subheader = (savedCities, stateChange) => {
   return (
     <section className='subheader'>
       <SavedLocationContainer savedCities={savedCities} />
-      <SearchBar
+      <SearchBar stateChange={stateChange}
       />
     </section>
   )

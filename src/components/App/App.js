@@ -12,7 +12,9 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      currentCity: 'Washington',
       cityData: [],
+      cityId: '',
       weatherData: {},
       savedCities: [fakeCityId, fakeCityId, fakeCityId],
       error: ''
@@ -20,18 +22,36 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetchCityId('Denver')
+    fetchCityId(this.state.currentCity)
       .then((fetchedCityData) => {
         this.setState({ cityData: fetchedCityData })
-      })
-      .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
-
-    fetchWeatherById('2391279')
-      .then((fetchedWeatherData) => {
-        this.setState({ weatherData: this.organizeWeatherData(fetchedWeatherData) })
+        this.getWeatherById(fetchedCityData[0].woeid)
       })
       .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
   }
+
+  getWeatherById(id) {
+    fetchWeatherById(id)
+      .then((fetchedWeatherData) => {
+        this.setState({ weatherData: this.organizeWeatherData(fetchedWeatherData) })
+      })
+  }
+
+
+  // componentDidMount() {
+  //   fetchCityId(this.state.currentCity)
+  //     .then((fetchedCityData) => {
+  //       this.setState({ cityData: fetchedCityData })
+  //     })
+  //     .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
+
+  //   fetchWeatherById('44418')
+  //     .then((fetchedWeatherData) => {
+  //       this.setState({ weatherData: this.organizeWeatherData(fetchedWeatherData) })
+  //     })
+  //     .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
+  // }
+
 
   organizeWeatherData(weatherData) {
     Object.keys(weatherData)
@@ -42,22 +62,18 @@ class App extends Component {
     }
   }
 
-  // renderComponent = () => {
-  //   if (this.state.weatherData) {
-  //     return (
-  //       <DailyForecast
-  //         weatherData={this.state.weatherData} />
-  //       // <WeeklyForecast
-  //       //   weatherData={this.state.weatherData} />
-  //     )
-  //   }
-  // }
+  stateChange = (dataLocation, newStateData) => {
+    this.setState({ [dataLocation]: newStateData })
+  }
 
   render() {
     return (
       <main className='app'>
         <Nav />
-        <Subheader savedCities={this.state.savedCities} />
+        <Subheader
+          savedCities={this.state.savedCities}
+          stateChange={this.stateChange}
+        />
         <section className='main-page'>
           {!!this.state.error &&
             <h2 className='error-feedback'>{this.state.error}</h2>
