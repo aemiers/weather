@@ -28,7 +28,6 @@ class SearchBar extends Component {
       return
     } else {
       const finalSearchWords = this.state.searchWords;
-      console.log(finalSearchWords)
       this.props.stateChange('currentCity', finalSearchWords);
     }
   }

@@ -8,7 +8,7 @@ const Pin = ({ name, id, unpinLocation }) => {
       <button className='pin-button' onClick={() => unpinLocation(id)}>
         <img src={pin} alt='red pin' className='red-pin' />
       </button>
-      <p>{name}</p>
+      <button className='redirect-location' >{name}</button>
     </section>
   )
 }

@@ -24,11 +24,11 @@ class App extends Component {
     this.getData();
   }
 
-  // componentDidUpdate(prevState) {
-  //   if (this.state.currentCity !== prevState.currentCity) {
-  //     this.getData();
-  //   }
-  // }
+  componentDidUpdate(prevState, prevProps) {
+    if (this.state.currentCity !== prevProps.currentCity) {
+      this.getData();
+    }
+  }
 
   getData() {
     fetchCityId(this.state.currentCity)
