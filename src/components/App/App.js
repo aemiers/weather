@@ -68,25 +68,17 @@ class App extends Component {
     let currentlySavedLocations = this.state.savedCities;
     if (!this.state.savedCities.includes(this.state.cityData[0])) {
       currentlySavedLocations.push(this.state.cityData[0]);
-      console.log(currentlySavedLocations)
-      this.setState({ savedCities: currentlySavedLocations })
+      this.setState({ savedCities: currentlySavedLocations });
     }
   }
 
   unpinLocation = (id) => {
     let currentlySavedLocations = this.state.savedCities;
-    let foundCity = currentlySavedLocations.find(city => {
-      return city.title === id
-    })
-    console.log(foundCity)
-    // if (response.ok) {
-    //   const filteredIdeas = this.state.ideas.filter(idea => idea.id !== id);
-    //   this.setState({ ideas: filteredIdeas, error: '' });
-    // } else {
-    //   this.setState({ error: `There was a problem deleting that idea!` })
-    // }
+    let foundCity = currentlySavedLocations.find(city => city.title === id);
+    let index = currentlySavedLocations.indexOf(foundCity) - 1;
+    currentlySavedLocations = currentlySavedLocations.splice(index, 1);
+    this.setState({ savedCities: currentlySavedLocations });
   }
-
 
   render() {
     return (
@@ -95,7 +87,7 @@ class App extends Component {
         <Subheader
           savedCities={this.state.savedCities}
           stateChange={this.stateChange}
-          removeLocation={this.unpinLocation}
+          unpinLocation={this.unpinLocation}
         />
         <section className='main-page'>
           {!!this.state.error &&
