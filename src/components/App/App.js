@@ -33,10 +33,11 @@ class App extends Component {
   getData() {
     fetchCityId(this.state.currentCity)
       .then((fetchedCityData) => {
+        this.setState({ error: '' })
         this.setState({ cityData: fetchedCityData })
         this.getWeatherById(fetchedCityData[0].woeid)
       })
-      .catch(error => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
+      .catch(error => this.setState({ error: 'Apologies- I couldn\'t find that city. Please try a larger city.' }))
   }
 
   getWeatherById(id) {
@@ -75,8 +76,8 @@ class App extends Component {
   unpinLocation = (id) => {
     let currentlySavedLocations = this.state.savedCities;
     let foundCity = currentlySavedLocations.find(city => city.title === id);
-    let index = currentlySavedLocations.indexOf(foundCity) - 1;
-    currentlySavedLocations = currentlySavedLocations.splice(index, 1);
+    let index = currentlySavedLocations.indexOf(foundCity);
+    currentlySavedLocations.splice(index, 1);
     this.setState({ savedCities: currentlySavedLocations });
   }
 
