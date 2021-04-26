@@ -12,3 +12,8 @@
   margin-right: 5px;
 }
 
+.pin-button {
+  border: none;
+  background: transparent;
+  @include cursor;
+}

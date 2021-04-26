@@ -7,7 +7,9 @@ const Subheader = ({ savedCities, stateChange }) => {
 
   return (
     <section className='subheader'>
-      <SavedLocationContainer savedCities={savedCities} />
+      <SavedLocationContainer
+        savedCities={savedCities}
+      />
       <SearchBar stateChange={stateChange} />
     </section>
   )

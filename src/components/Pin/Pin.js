@@ -2,10 +2,12 @@ import './Pin.scss';
 import React from 'react';
 import pin from '../../assets/pin.svg'
 
-const Pin = ({ name }) => {
+const Pin = ({ name, id, removeLocation }) => {
   return (
     <section className='pin-container'>
-      <img src={pin} alt='red pin' className='red-pin' />
+      <button className='pin-button' onClick={() => removeLocation(id)}>
+        <img src={pin} alt='red pin' className='red-pin' />
+      </button>
       <p>{name}</p>
     </section>
   )
