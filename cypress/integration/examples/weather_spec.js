@@ -47,11 +47,80 @@ describe('Weather Home Page', () => {
       })
   })
 
-  // it('Should be able to click on a nav button and be redirected to a new link', () => {
-  //   cy
-  //     .get('.movie-card:first').contains('Money').click()
-  //     .url().should('include', '694919')
-  // });
+  it('Should be able to click on a nav button and be redirected to a new link', () => {
+    cy
+      .get('[data-cy=five-day-forecast]').click()
+      .url().should('include', '5')
+  });
+})
+
+describe('Weekly Forecast Page', () => {
+  beforeEach(() => {
+    cy
+      .intercept('/api/location/2514815/', { fixture: 'fakeWeather.json' })
+      .intercept('/api/location/search/?query=washington', { fixture: 'fakeCity.json' })
+      .visit('http://localhost:3000')
+      .get('[data-cy=five-day-forecast]').click()
+  })
+
+  it('Should display a fully loaded header on the weekly forecast page', () => {
+    cy
+      .get('.nav-bar').should('be.visible')
+      .get('.header-text').should('be.visible')
+      .get('.logo').should('be.visible')
+  })
+
+  it('Should display a fully loaded subheader on the weekly forecast page', () => {
+    cy
+      .get('.pin-container').should('be.visible')
+      .get('.red-pin').should('be.visible')
+      .get('.search-icon').should('be.visible')
+      .get('.clear-button').should('be.visible')
+      .get('input').should('be.visible')
+      .get('input').should('be.empty')
+  })
+
+  it('Should be able to display the city details on the weekly forecast page', () => {
+    cy
+      .get('.header-container')
+      .should(($headerContainer) => {
+        expect($headerContainer).to.contain('Forecast')
+        expect($headerContainer).to.contain('Coordinates')
+      })
+      .get('.header-container__pin').should('be.visible')
+  })
+
+  it('Should display the seven days of the week', () => {
+    cy
+      .get('.card-container')
+      .should(($cardContainer) => {
+        expect($cardContainer, 'first').to.contain('2021-04-21')
+        expect($cardContainer, 'first').to.contain('57')
+        expect($cardContainer, 'second').to.contain('2021-04-22')
+        expect($cardContainer, 'second').to.contain('58')
+        expect($cardContainer, 'third').to.contain('2021-04-23')
+        expect($cardContainer, 'third').to.contain('59')
+        expect($cardContainer, 'fourth').to.contain('2021-04-24')
+        expect($cardContainer, 'fourth').to.contain('59')
+        expect($cardContainer, 'fifth').to.contain('2021-04-25')
+        expect($cardContainer, 'fifth').to.contain('57')
+        expect($cardContainer, 'sixth').to.contain('2021-04-26')
+        expect($cardContainer, 'sixth').to.contain('60')
+      })
+  })
+
+  it('should go back or forward in the browser\'s history', () => {
+    cy
+      .url('/5day').should('include', '5day')
+      .go('back')
+      .url('/').should('not.include', '5day')
+      .go('forward')
+      .url('/5day').should('include', '5day')
+      .go(-1)
+      .url('/').should('not.include', '5day')
+      .go(1)
+      .url('/5day').should('include', '5day')
+  })
 })
 
 
