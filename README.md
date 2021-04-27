@@ -1,7 +1,7 @@
 <h1 align="left">WeatherForecaster</h1>
 
 <p align="center">
-    <img src="src/assets/01-sunny.svg" alt="sun" width="200" height='auto'>
+    <img src="src/assets/001-sunny.svg" alt="sun" width="200" height='auto'>
     <br />
   </p>
 
