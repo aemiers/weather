@@ -1,5 +1,6 @@
 import './TemperatureCard.scss';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const TemperatureCard = ({ weatherData }) => {
   let fHighTemp, fLowTemp, fCurrentTemp;
@@ -23,3 +24,7 @@ const TemperatureCard = ({ weatherData }) => {
 }
 
 export default TemperatureCard;
+
+TemperatureCard.propTypes = {
+  weatherData: PropTypes.object,
+}

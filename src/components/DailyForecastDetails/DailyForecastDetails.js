@@ -3,6 +3,8 @@ import React from 'react';
 import PictureCard from '../PictureCard/PictureCard';
 import TemperatureCard from '../TemperatureCard/TemperatureCard';
 import WeatherDetailsList from '../WeatherDetailsList/WeatherDetailsList';
+import PropTypes from 'prop-types';
+
 
 const DailyForecastDetails = ({ weatherData }) => {
 
@@ -19,3 +21,7 @@ const DailyForecastDetails = ({ weatherData }) => {
 }
 
 export default DailyForecastDetails;
+
+DailyForecastDetails.propTypes = {
+  weatherData: PropTypes.object
+}

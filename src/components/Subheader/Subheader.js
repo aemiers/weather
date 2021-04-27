@@ -1,7 +1,8 @@
 import './Subheader.scss';
 import React from 'react';
-import SavedLocationContainer from '../SavedLocationContainer/SavedLocationContainer'
-import SearchBar from '../SearchBar/SearchBar'
+import SavedLocationContainer from '../SavedLocationContainer/SavedLocationContainer';
+import SearchBar from '../SearchBar/SearchBar';
+import PropTypes from 'prop-types';
 
 const Subheader = ({ savedCities, stateChange, unpinLocation }) => {
 
@@ -18,4 +19,9 @@ const Subheader = ({ savedCities, stateChange, unpinLocation }) => {
 }
 
 export default Subheader
+
+Subheader.propTypes = {
+  savedCities: PropTypes.array,
+}
+
 

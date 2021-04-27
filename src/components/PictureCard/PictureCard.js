@@ -1,4 +1,5 @@
 import './PictureCard.scss';
+import PropTypes from 'prop-types';
 import React from 'react';
 import sunny from '../../assets/001-sunny.svg';
 import snow from '../../assets/009-snow.svg';
@@ -61,5 +62,8 @@ const PictureCard = ({ weatherData }) => {
   )
 }
 
-
 export default PictureCard;
+
+PictureCard.propTypes = {
+  weatherData: PropTypes.object
+}
