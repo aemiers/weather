@@ -12,7 +12,7 @@ const Nav = () => {
           activeClassName='activated-nav'
           style={{ textDecoration: 'none' }}
         >
-          <h3 className='header-text'>TODAY'S FORECAST</h3>
+          <h3 className='header-text' data-cy='todays-forecast'>TODAY'S FORECAST</h3>
         </NavLink>
         <NavLink
           exact to='/5day'
@@ -20,7 +20,7 @@ const Nav = () => {
           style={{ textDecoration: 'none' }}
 
         >
-          <h3 className='header-text'>5-DAY FORECAST</h3>
+          <h3 className='header-text' data-cy='five-day-forecast'>5-DAY FORECAST</h3>
         </NavLink>
       </section>
     </header>

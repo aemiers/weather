@@ -1,6 +1,8 @@
 import './SavedLocationContainer.scss';
 import React from 'react';
-import Pin from '../Pin/Pin'
+import Pin from '../Pin/Pin';
+import PropTypes from 'prop-types';
+
 
 const SavedLocationContainer = ({ savedCities, unpinLocation, stateChange }) => {
   const allSavedCities = savedCities.map(city => {
@@ -22,3 +24,7 @@ const SavedLocationContainer = ({ savedCities, unpinLocation, stateChange }) => 
 }
 
 export default SavedLocationContainer
+
+SavedLocationContainer.propTypes = {
+  savedCities: PropTypes.array,
+}

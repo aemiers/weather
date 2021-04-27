@@ -1,6 +1,7 @@
 import './WeeklyForecastDetails.scss';
 import React from 'react';
 import MiniWeatherCard from '../MiniWeatherCard/MiniWeatherCard';
+import PropTypes from 'prop-types';
 
 const WeeklyForecastDetails = ({ weatherData }) => {
   let weeklyForecastData;
@@ -26,3 +27,7 @@ const WeeklyForecastDetails = ({ weatherData }) => {
 }
 
 export default WeeklyForecastDetails;
+
+WeeklyForecastDetails.propTypes = {
+  weatherData: PropTypes.object,
+}

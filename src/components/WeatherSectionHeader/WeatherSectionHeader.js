@@ -1,7 +1,8 @@
 import './WeatherSectionHeader.scss';
 import React from 'react';
-import pin from '../../assets/pin.svg'
-import pinBlank from '../../assets/pinBlank.svg'
+import pin from '../../assets/pin.svg';
+import pinBlank from '../../assets/pinBlank.svg';
+import PropTypes from 'prop-types';
 
 const WeatherSectionHeader = ({ weatherData, pinLocation, savedCities }) => {
   let displayPin;
@@ -29,3 +30,7 @@ const WeatherSectionHeader = ({ weatherData, pinLocation, savedCities }) => {
 }
 
 export default WeatherSectionHeader;
+
+WeatherSectionHeader.propTypes = {
+  weatherData: PropTypes.object,
+}

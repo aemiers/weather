@@ -1,4 +1,5 @@
 import './MiniWeatherCard.scss';
+import PropTypes from 'prop-types';
 import React from 'react';
 import sunny from '../../assets/001-sunny.svg';
 import snow from '../../assets/009-snow.svg';
@@ -55,3 +56,10 @@ const MiniWeatherCard = ({ fLowTemp, fHighTemp, weatherName, date }) => {
 }
 
 export default MiniWeatherCard;
+
+MiniWeatherCard.propTypes = {
+  fLowTemp: PropTypes.string,
+  fHighTemp: PropTypes.string,
+  weatherName: PropTypes.string,
+  date: PropTypes.string
+}

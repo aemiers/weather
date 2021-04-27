@@ -5,6 +5,7 @@ import moistureDrops from '../../assets/032-drop.svg'
 import windSock from '../../assets/windsock.svg'
 import windPressure from '../../assets/011-wind.svg'
 import cloud from '../../assets/cloud.svg'
+import PropTypes from 'prop-types';
 
 const WeatherDetailsList = ({ weatherData }) => {
   let humidity, wind, windDirection, pressure, visibility;
@@ -43,3 +44,7 @@ const WeatherDetailsList = ({ weatherData }) => {
 }
 
 export default WeatherDetailsList;
+
+WeatherDetailsList.propTypes = {
+  weatherData: PropTypes.object,
+}
