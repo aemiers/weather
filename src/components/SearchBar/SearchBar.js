@@ -44,6 +44,7 @@ class SearchBar extends Component {
           <img className='search-icon' src={search} alt="search icon" />
           <input
             type='text'
+            data-cy='search-bar-input'
             placeholder='Search by City'
             name='search'
             value={this.state.searchWords}
