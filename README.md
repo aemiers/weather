@@ -53,14 +53,21 @@ WeatherForecaster is designed to bring joy to those needing to check the weather
 #### Today's Forecast
   - When a user visits the site, they are able to view the default weather location that gives specifics about the weather, such as the current temperature, high and lows of the day, weather conditions, and other details.  
 
+
 #### Weekly Forecast
   - When a user clicks on the weekly forecast tab, they are able to view the 7 day forecast for their specified location. 
+
+< img src = "https://media.giphy.com/media/Oz5VP9byKeowxtL6RO/giphy.gif" width = "1440" >
 
 #### Search Location
  - Because not everyone lives in the same city, users are able to search for their desired location via the search bar. Upon entering their city, the page will reload with that city's information. If the city is not found in the API, a message will appear to urge them to search for a different city.
 
+< img src = "https://media.giphy.com/media/mHbdW6C1S3EMJb1DQz/giphy.gif" width = "1440" >
+
 #### Pin City
 - To create a better user experience, the user can 'pin', or save, a city. Their pinned cities will be easily accessible to them in the subheader. The pin can be removed at anytime by clicking the pin. If the user would like to search by the pinned location, they simply have to click on the location name. 
+
+< img src = "https://media.giphy.com/media/Es7EH9LGcXyXDsN4L3/giphy.gif" width = "1440" >
 
 #### Accessibility 
 
