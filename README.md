@@ -23,7 +23,7 @@ WeatherForecaster is designed to bring joy to those needing to check the weather
 
 ## Final Product:
 ##### Today's Forecast Page:
-<img src="src/assets/weather_today"/>
+<img src="src/assets/weather_today.png"/>
 
 
 ##### Weekly Forecast Page:
