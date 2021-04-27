@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+<h1 align="left">WeatherForecaster</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+    <img src="src/assets/01-sunny.svg" alt="sun" width="200" height='auto'>
+    <br />
+  </p>
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+* [About the Project](#about-the-project)
+* [Final Product](#final-product)
+* [Installation](#installation)
+* [Persona](#persona)
+* [Wireframes](#wireframes)
+* [Functionality](#functionality)
+* [Project Goals](#project-goals)
+* [Technologies Used](#technologies-used)
+* [Contact the Creator](#contact-the-creator)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## About the Project
+WeatherForecaster is designed to bring joy to those needing to check the weather for their day.  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Final Product:
+##### Today's Forecast Page:
+<img src="src/assets/weather_today"/>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### Weekly Forecast Page:
+![](src/assets/weather_5day.png)
 
-### `npm run build`
+## Installation
+1. Fork this repository.
+2. Clone it down to your local machine with `git clone <your SSH Key>`.
+3. Navigate into the directory.
+4. Run `npm install` to compile the React application.
+5. Run `npm start` to see the app running locally.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Persona
+![](src/assets/Persona1.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Wireframes
+![](src/assets/weather_wireframes.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Functionality
+* [Today's Forecast](#todays-forecast)
+* [Weekly Forecast](#weekly-forecast)
+* [Search Location](#search-location)
+* [Pin City](#pin-city)
+* [Accessibility](#accessibility)
+* [Error Handling](#error-handling)
 
-### `npm run eject`
+#### Today's Forecast
+  - When a user visits the site, they are able to view the default weather location that gives specifics about the weather, such as the current temperature, high and lows of the day, weather conditions, and other details.  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Weekly Forecast
+  - When a user clicks on the weekly forecast tab, they are able to view the 7 day forecast for their specified location. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Search Location
+ - Because not everyone lives in the same city, users are able to search for their desired location via the search bar. Upon entering their city, the page will reload with that city's information. If the city is not found in the API, a message will appear to urge them to search for a different city.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Pin City
+- To create a better user experience, the user can 'pin', or save, a city. Their pinned cities will be easily accessible to them in the subheader. The pin can be removed at anytime by clicking the pin. If the user would like to search by the pinned location, they simply have to click on the location name. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Accessibility 
 
-## Learn More
+WeatherForecaster received 100% acecessibility audit from Lighthouse.
+<img src="src/assets/weather_scores"/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Error Handling
+Dynamic error handling is used so that a user will receive a specific error message based on the error type.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Goals
 
-### Code Splitting
+- Create an accessible app that has a clean UI and simple UX.
+- Create a multi-page UX using React Router.
+- Testing User Stories using `Cypress`.
+- Gain competency with React and create multipage using Router.
+- Learn and implement TypeScript on front-end and back-end.
+- Make network requests to API endpoints to retrieve and manipulate data.
+- Use Object Oriented Programming (OOP) to drive the design of the application and the code.
+- Ensure the app is following best accessibility practices.
+- Leverage SASS to DRY up CSS.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Technologies Used
 
-### Analyzing the Bundle Size
+- ![React](https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB)
+- ![ReactRouter](https://camo.githubusercontent.com/4f9d20f3a284d2f6634282f61f82a62e99ee9906537dc9859decfdc9efbb51ec/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f52656163745f526f757465722d4341343234353f7374796c653d666f722d7468652d6261646765266c6f676f3d72656163742d726f75746572266c6f676f436f6c6f723d7768697465)
+- ![JavaScript](https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+- ![HTML5](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white)
+- ![CSS3](https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white)
+- ![Webpack](https://img.shields.io/badge/webpack%20-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black)
+- ![Cypress](https://img.shields.io/badge/cypress%20-%2317202C.svg?&style=for-the-badge&logo=cypress&logoColor=white)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contact the Creator
+[<img src="https://img.shields.io/badge/LinkedIn-anneke--miers-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin]
+[<img src="https://img.shields.io/badge/Github-aemiers-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github]
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<!-- Personal Definitions  -->
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[linkedin]: https://www.linkedin.com/in/anneke-miers/
+[github]: https://github.com/aemiers
